@@ -11,12 +11,10 @@ const connect = mongoose.connect(url, {useMongoClient: true})
 connect.then((db)=>{
   console.log('Connected correctly to the server');
 
-  var newDish = Dishes({
+  Dishes.create({
     name: 'Vishal',
     description: 'test'
   })
-
-  newDish.save()
   .then((dish)=>{
     console.log(dish);
     return Dishes.find({}).exec();
